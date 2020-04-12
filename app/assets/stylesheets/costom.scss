@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  .header-left h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 3rem;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  .header-right {
+    padding-top: 30px;
+    a {
+     padding: 10px 20px;
+     margin-right: 20px;
+     border-radius: 20px;
+     background: #000;
+     color: #fff;
+     font-size: 1.2rem;
+     &:hover {
+       opacity: 0.8;
+       transition: all 0.2s;
+     }
+   }
+  }
+}
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.heading-text {
+  position: absolute;
+  top: 150px;
+  width: 400px;
+  padding: 60px 0 0 50px;
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    span {
+      color: #fff;
+    }
+  }
+}
+.heading-image {
+  width: 400px;
+  padding-left: 195px;
+  img {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+.heading-text-second {
+  position: absolute;
+  top: 480px;
+  left: 255px;
+  width: 400px;
+  padding: 60px 0 0 50px;
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    span {
+      color: #fff;
+    }
+  }
+}
+.heading-image-second {
+  width: 400px;
+  padding-top: 50px;
+  padding-left: 50px;
+  img {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+.login-form {
+  width: 300px;
+  height: 100%;
+  padding: 20px;
+  border: #aaa solid 1px;
+  border-radius: 10px;
+  margin: 150px 50px 0 0;
+  .form-logo {
+    margin-left: 20px;
+    h1 {
+      font-family: 'Sacramento', cursive;
+      font-size: 5.6rem;
+      margin-top: 20px;
+    }
+    h2 {
+      font-size: 1.2rem;;
+    }
+  }
+  .form {
+    text-align: center;
+    padding: 60px 0 20px;
+    a {
+      padding: 10px 20px;
+      border-radius: 20px;
+      background: #000;
+      color: #fff;
+      font-size: 1.2rem;
+      &:hover {
+        opacity: 0.8;
+        transition: all 0.2s;
+      }
+    }
+    p {
+      padding: 40px;
+    }
+  }
+}
