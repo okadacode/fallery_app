@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   before_save { self.name = name.downcase }
   before_save { self.email = email.downcase }
+  mount_uploader :icon, IconUploader
+  mount_uploader :header, HeaderUploader
   VALID_NAME_REGEX = /\A[a-zA-Z0-9]+\z/i
   validates :name, presence: true, length: { maximum: 16 },
                    format: { with: VALID_NAME_REGEX },

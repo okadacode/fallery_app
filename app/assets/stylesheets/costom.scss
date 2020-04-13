@@ -58,6 +58,9 @@ header {
   position: fixed;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  z-index: 9999;
   .header-left h1 {
     font-family: 'Sacramento', cursive;
     font-size: 3rem;
@@ -67,30 +70,35 @@ header {
   .header-right {
     padding-top: 30px;
     a {
-     padding: 10px 20px;
-     margin-right: 20px;
-     border-radius: 20px;
-     background: #000;
-     color: #fff;
-     font-size: 1.2rem;
-     &:hover {
-       opacity: 0.8;
-       transition: all 0.2s;
-     }
-   }
+      padding: 10px 20px;
+      margin-right: 20px;
+      border: 1px solid #000;
+      border-radius: 20px;
+      background: #fff;
+      color: #000;
+      font-size: 1.2rem;
+      &:hover {
+        background: #000;
+        color: #fff;
+        transition: all 0.2s;
+      }
+    }
   }
 }
 .container {
-  position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 40px;
+  padding-top: 80px;
+}
+.toppage-wrapper {
+  width: 100%;
+  position: relative;
   display: flex;
   justify-content: space-between;
 }
 .heading-text {
   position: absolute;
-  top: 150px;
+  top: 80px;
   width: 400px;
   padding: 60px 0 0 50px;
   h2 {
@@ -106,12 +114,12 @@ header {
   padding-left: 195px;
   img {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 10px;
   }
 }
 .heading-text-second {
   position: absolute;
-  top: 480px;
+  top: 410px;
   left: 255px;
   width: 400px;
   padding: 60px 0 0 50px;
@@ -125,7 +133,7 @@ header {
 }
 .heading-image-second {
   width: 400px;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-left: 50px;
   img {
     width: 100%;
@@ -136,9 +144,9 @@ header {
   width: 300px;
   height: 100%;
   padding: 20px;
-  border: #aaa solid 1px;
+  border: #ddd solid 1px;
   border-radius: 10px;
-  margin: 150px 50px 0 0;
+  margin: 120px 50px 0 0;
   .form-logo {
     margin-left: 20px;
     h1 {
@@ -155,12 +163,14 @@ header {
     padding: 60px 0 20px;
     a {
       padding: 10px 20px;
+      border: 1px solid #000;
       border-radius: 20px;
-      background: #000;
-      color: #fff;
+      background: #fff;
+      color: #000;
       font-size: 1.2rem;
       &:hover {
-        opacity: 0.8;
+        background: #000;
+        color: #fff;
         transition: all 0.2s;
       }
     }
@@ -168,4 +178,72 @@ header {
       padding: 40px;
     }
   }
+}
+
+.mypage {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.mypage-left {
+  width: 60%;
+  height: 100vh;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+.profile {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  .profile-header {
+    img {
+      width: 100%;
+      height: 300px;
+    }
+  }
+  .profile-icon {
+    position: absolute;
+    top: 240px;
+    left: 50%;
+    transform: translateX(-50%);
+    img {
+      width: 120px;
+      border: 5px solid #fff;
+      border-radius: 50%;
+      box-sizing: content-box;
+    }
+  }
+  h2 {
+    text-align: center;
+    margin-top: 80px;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  h3 {
+    text-align: center;
+    color: #aaa;
+  }
+  p {
+    width: 90%;
+    margin: 30px auto 0;
+    font-size: 1.4rem;
+  }
+  .follow {
+    text-align: right;
+    margin: 20px;
+    a {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.posting-list {
+  position: fixed;
+  left: 60%;
+  width: 360px;
+  height: 75vh;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 20px;
 }
