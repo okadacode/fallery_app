@@ -14,6 +14,4 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { maximum: 32 }
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }
-  validates :icon, presence: true
-  validates :header, presence: true
 end
