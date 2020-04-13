@@ -1,2 +1,33 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="form-wrapper">
+  <h1>Fallery</h1>
+  <%= form_for(@user) do |f| %>
+    <div class="form-box">
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="form-box">
+      <%= f.label :nickname, "名前" %>
+      <%= f.text_field :nickname %>
+    </div>
+
+    <div class="form-box">
+      <%= f.label :name, "ユーザー名" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="form-box">
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="form-box">
+      <%= f.label :password_confirmation, "確認" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+    <div class="btn">
+      <%= f.submit "アカウント作成" %>
+    </div>
+  <% end %>
+</div>

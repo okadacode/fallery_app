@@ -247,3 +247,50 @@ header {
   border-radius: 10px;
   margin: 20px;
 }
+
+.form-wrapper {
+  width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 0 auto;
+  background: #efefef;
+  h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 4rem;
+    margin: 20px;
+    text-align: center;
+  }
+}
+
+.form-box {
+  width: 400px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 10px auto;
+  background: #fff;
+  input, textarea, select {
+    width: 100%;
+    border: none;
+  }
+}
+
+
+.btn {
+  width: 410px;
+  margin: 0 auto 20px;
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background: #000;
+      color: #fff;
+      transition: all 0.2s;
+    }
+  }
+}
