@@ -36,5 +36,9 @@ module FalleryApp
         controller_specs: false,
         routing_specs: false
     end
+
+    # 追記
+    # i18n
+    config.i18n.default_locale = :ja
   end
 end

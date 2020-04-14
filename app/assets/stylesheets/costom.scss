@@ -247,3 +247,80 @@ header {
   border-radius: 10px;
   margin: 20px;
 }
+
+.form-wrapper {
+  width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 0 auto 50px;
+  background: #efefef;
+  h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 4rem;
+    margin: 20px;
+    text-align: center;
+  }
+}
+
+.form-box {
+  width: 400px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 10px auto;
+  background: #fff;
+  input, textarea, select {
+    width: 100%;
+    border: none;
+  }
+}
+
+
+.btn {
+  width: 410px;
+  margin: 0 auto 20px;
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background: #000;
+      color: #fff;
+      transition: all 0.2s;
+    }
+  }
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 30px;
+  }
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0.8}
+  50% {opacity: 0.8}
+  100% {opacity: 0}
+}
+
+.flash {
+  z-index: 10000;
+  position: fixed;
+  width: 400px;
+  padding: 10px;
+  border: 2px solid #763626;
+  border-radius: 10px;
+  margin: 10px 0 0 150px;
+  background: #89DA59;
+  color: #763626;
+  font-size: 2rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeOut 3s ease 2s 1 normal;
+}

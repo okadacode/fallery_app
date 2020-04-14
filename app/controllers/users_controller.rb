@@ -9,7 +9,20 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.icon = "icon.png"
-    @user.header = "header.jpeg"
+    # @user.icon = "icon.png"
+    # @user.header = "header.jpeg"
+    if @user.save
+      flash[:success] = "Falleryにようこそ！"
+      redirect_to "/#{@user.name}"
+    else
+      render "new"
+    end
   end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :nickname,
+                                   :password, :password_confirmation)
+    end
 end
