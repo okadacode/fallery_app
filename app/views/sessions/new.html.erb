@@ -1,0 +1,18 @@
+<div class="form-wrapper">
+  <h1>Fallery</h1>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <div class="form-box">
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="form-box">
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="btn">
+      <%= f.submit "ログイン" %>
+    </div>
+  <% end %>
+</div>

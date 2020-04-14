@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -69,18 +70,32 @@ header {
   }
   .header-right {
     padding-top: 30px;
-    a {
-      padding: 10px 20px;
-      margin-right: 20px;
-      border: 1px solid #000;
-      border-radius: 20px;
-      background: #fff;
-      color: #000;
-      font-size: 1.2rem;
-      &:hover {
-        background: #000;
-        color: #fff;
-        transition: all 0.2s;
+    .header-logout {
+      a {
+        margin-right: 20px;
+        color: #000;
+        opacity: 0.7;
+        font-size: 1.2rem;
+        &:hover {
+          opacity: 1;
+          transition: all 0.2s;
+        }
+      }
+    }
+    .header-login {
+      a {
+        padding: 10px 20px;
+        margin-right: 20px;
+        border: 1px solid #000;
+        border-radius: 20px;
+        background: #fff;
+        color: #000;
+        font-size: 1.2rem;
+        &:hover {
+          background: #000;
+          color: #fff;
+          transition: all 0.2s;
+        }
       }
     }
   }
@@ -257,7 +272,7 @@ header {
   h1 {
     font-family: 'Sacramento', cursive;
     font-size: 4rem;
-    margin: 20px;
+    margin: 30px;
     text-align: center;
   }
 }
@@ -267,7 +282,7 @@ header {
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  margin: 10px auto;
+  margin: 30px auto;
   background: #fff;
   input, textarea, select {
     width: 100%;
@@ -278,7 +293,7 @@ header {
 
 .btn {
   width: 410px;
-  margin: 0 auto 20px;
+  margin: 0 auto 40px;
   input {
     width: 100%;
     padding: 10px;
@@ -309,7 +324,7 @@ header {
   100% {opacity: 0}
 }
 
-.flash {
+.flash-success {
   z-index: 10000;
   position: fixed;
   width: 400px;
@@ -323,4 +338,10 @@ header {
   text-align: center;
   opacity: 0;
   animation: fadeOut 3s ease 2s 1 normal;
+}
+
+.flash-danger {
+  padding: 10px;
+  text-align: center;
+  color: red;
 }

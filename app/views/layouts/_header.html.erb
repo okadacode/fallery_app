@@ -1,12 +1,26 @@
 <% unless controller_name == "users" && action_name == "new" || \
-          controller_name == "users" && action_name == "create" %>
+          controller_name == "users" && action_name == "create" || \
+          controller_name == "sessions" && action_name == "new" || \
+          controller_name == "sessions" && action_name == "create"%>
   <header>
     <div class="header-left">
       <h1>Fallery</h1>
     </div>
     <div class="header-right">
-      <%= link_to "ログイン" %>
-      <%= link_to "アカウント作成" %>
+      <% if logged_in? %>
+        <div class="header-logout">
+          <%= link_to "ホーム" %>
+          <%= link_to "検索" %>
+          <%= link_to "マイページ", "/#{@current_user.name}" %>
+          <%= link_to "ギャラリー" %>
+          <%= link_to "ログアウト", logout_path, method: :delete %>
+        </div>
+      <% else %>
+        <div class="header-login">
+          <%= link_to "ログイン", login_path %>
+          <%= link_to "アカウント作成", signup_path %>
+        </div>
+      <% end %>
     </div>
   </header>
 <% end %>
