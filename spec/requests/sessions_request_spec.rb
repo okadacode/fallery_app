@@ -30,8 +30,27 @@ RSpec.describe "Sessions", type: :request do
       expect(response).to render_template "users/show"
       delete logout_path
       expect(session[:user_id]).to be_falsey
+      delete logout_path
       follow_redirect!
       expect(response).to render_template "top_pages/home"
+    end
+
+    it "remember_meをオンにしたとき" do
+      post login_path, params: { session: { email: @user.email,
+                                            password: @user.password,
+                                            remember_me: "1" } }
+      expect(@user.reload.remember_digest).to be_truthy
+    end
+
+    it "remember_meをオフにしたとき" do
+      post login_path, params: { session: { email: @user.email,
+                                            password: @user.password,
+                                            remember_me: "1" } }
+      delete logout_path
+      post login_path, params: { session: { email: @user.email,
+                                            password: @user.password,
+                                            remember_me: "0" } }
+      expect(@user.reload.remember_digest).to be_falsey
     end
   end
 

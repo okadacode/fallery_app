@@ -98,4 +98,10 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to eq(false)
     end
   end
+
+  describe "メソッド" do
+    it "authenticated?でダイジェストが存在しなければfalse" do
+      expect(@user.authenticated?("")).to eq(false)
+    end
+  end
 end
