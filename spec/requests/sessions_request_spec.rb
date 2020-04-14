@@ -30,6 +30,7 @@ RSpec.describe "Sessions", type: :request do
       expect(response).to render_template "users/show"
       delete logout_path
       expect(session[:user_id]).to be_falsey
+      delete logout_path
       follow_redirect!
       expect(response).to render_template "top_pages/home"
     end
