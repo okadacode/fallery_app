@@ -4,7 +4,7 @@ User.create!(
   nickname: "ユーザー１",
   password: "password",
   password_confirmation: "password",
-  icon: File.open("./app/assets/images/icon.png"),
-  header: File.open("./app/assets/images/header.jpeg"),
+  icon: File.open("./public/images/icon.png"),
+  header: File.open("./public/images/header.jpeg"),
   description: "こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは"
 )
