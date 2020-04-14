@@ -34,6 +34,24 @@ RSpec.describe "Sessions", type: :request do
       follow_redirect!
       expect(response).to render_template "top_pages/home"
     end
+
+    it "remember_meをオンにしたとき" do
+      post login_path, params: { session: { email: @user.email,
+                                            password: @user.password,
+                                            remember_me: "1" } }
+      expect(@user.reload.remember_digest).to be_truthy
+    end
+
+    it "remember_meをオフにしたとき" do
+      post login_path, params: { session: { email: @user.email,
+                                            password: @user.password,
+                                            remember_me: "1" } }
+      delete logout_path
+      post login_path, params: { session: { email: @user.email,
+                                            password: @user.password,
+                                            remember_me: "0" } }
+      expect(@user.reload.remember_digest).to be_falsey
+    end
   end
 
 end

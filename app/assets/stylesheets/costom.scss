@@ -282,7 +282,7 @@ header {
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  margin: 30px auto;
+  margin: 30px auto 0;
   background: #fff;
   input, textarea, select {
     width: 100%;
@@ -290,10 +290,21 @@ header {
   }
 }
 
+.checkbox {
+  margin-left: 50px;
+  input {
+    position: relative;
+    top: -3px;
+    margin-top: 20px;
+    transform: scale(2);
+    vertical-align: bottom;
+  }
+}
+
 
 .btn {
   width: 410px;
-  margin: 0 auto 40px;
+  margin: 30px auto 40px;
   input {
     width: 100%;
     padding: 10px;

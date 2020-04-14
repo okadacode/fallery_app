@@ -41,5 +41,6 @@ RSpec.describe "Users", type: :request do
       follow_redirect!
       expect(response).to render_template "users/show"
     end
+
   end
 end
