@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find_by!(name: params[:name])
+    @user = User.find_by(name: params[:name])
   end
 
   def new
@@ -9,9 +9,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # @user.icon = "icon.png"
-    # @user.header = "header.jpeg"
     if @user.save
+      log_in @user
       flash[:success] = "Falleryにようこそ！"
       redirect_to "/#{@user.name}"
     else
