@@ -1,4 +1,5 @@
-<% if !signup_path %>
+<% unless controller_name == "users" && action_name == "new" || \
+          controller_name == "users" && action_name == "create" %>
   <header>
     <div class="header-left">
       <h1>Fallery</h1>

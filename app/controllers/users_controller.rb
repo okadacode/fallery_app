@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     # @user.icon = "icon.png"
     # @user.header = "header.jpeg"
     if @user.save
-
+      flash[:success] = "Falleryにようこそ！"
+      redirect_to "/#{@user.name}"
     else
       render "new"
     end

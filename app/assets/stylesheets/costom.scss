@@ -252,7 +252,7 @@ header {
   width: 500px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   background: #efefef;
   h1 {
     font-family: 'Sacramento', cursive;
@@ -293,4 +293,34 @@ header {
       transition: all 0.2s;
     }
   }
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 30px;
+  }
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0.8}
+  50% {opacity: 0.8}
+  100% {opacity: 0}
+}
+
+.flash {
+  z-index: 10000;
+  position: fixed;
+  width: 400px;
+  padding: 10px;
+  border: 2px solid #763626;
+  border-radius: 10px;
+  margin: 10px 0 0 150px;
+  background: #89DA59;
+  color: #763626;
+  font-size: 2rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeOut 3s ease 2s 1 normal;
 }

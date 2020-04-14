@@ -1,6 +1,8 @@
 <div class="form-wrapper">
   <h1>Fallery</h1>
-  <%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <%= form_for(@user, :url => { :controller => :users,
+                                :action => :create }) do |f| %>
     <div class="form-box">
       <%= f.label :email, "メールアドレス" %>
       <%= f.email_field :email %>
