@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "Users", type: :request do
   before do
     @user = create(:user)
+    @another = create(:another)
   end
 
   describe "ユーザーの詳細ページ" do
@@ -45,6 +46,8 @@ RSpec.describe "Users", type: :request do
 
   describe "ユーザーの編集の失敗に対するテスト" do
     it "無効なデータが入力されたとき、editテンプレートが表示される" do
+      post login_path, params: { session: { email: @user.email,
+                                            password: @user.password } }
       get "/#{@user.name}/setting"
       expect(response).to render_template "users/edit"
       patch "/#{@user.name}/setting", params: {
@@ -58,6 +61,8 @@ RSpec.describe "Users", type: :request do
 
   describe "ユーザーの編集が成功したときのテスト" do
     it "有効なデータが入力されたとき、データベースが更新される" do
+      post login_path, params: { session: { email: @user.email,
+                                            password: @user.password } }
       get "/#{@user.name}/setting"
       expect(response).to render_template "users/edit"
       email = "foo@bar.com"
@@ -73,5 +78,48 @@ RSpec.describe "Users", type: :request do
       expect(@user.email).to eq(email)
       expect(@user.nickname).to eq(nickname)
     end
+  end
+
+  describe "ログイン済みでないとアクセスできないページのテスト" do
+    it "未ログインのユーザーがeditアクションを行えるか" do
+      get "/#{@user.name}/setting"
+      expect(flash[:notice]).to be_truthy
+      expect(response).to redirect_to login_url
+    end
+
+    it "未ログインのユーザーがupdateアクションを行えるか" do
+      patch "/#{@user.name}/setting", params: {
+        user: { email: @user.email,
+        nickname: @user.nickname } }
+      expect(flash[:notice]).to be_truthy
+      expect(response).to redirect_to login_url
+    end
+
+    it "フレンドリーフォワーディングのテスト" do
+      get "/#{@user.name}/setting"
+      post login_path, params: { session: { email: @user.email,
+                                            password: @user.password } }
+      expect(response).to redirect_to "/#{@user.name}/setting"
+    end
+  end
+
+  describe "ユーザーのプライベートなページのテスト" do
+    it  "別のユーザーでログインしたときにeditアクションを行えるか" do
+      post login_path, params: { session: { email: @another.email,
+                                            password: @another.password } }
+      get "/#{@user.name}/setting"
+      expect(response).to redirect_to root_url
+    end
+
+    it  "別のユーザーでログインしたときにupdateアクションを行えるか" do
+      post login_path, params: { session: { email: @another.email,
+                                            password: @another.password } }
+      patch "/#{@user.name}/setting", params: {
+        user: { email: @user.email,
+        nickname: @user.nickname } }
+      expect(response).to redirect_to root_url
+    end
+
+
   end
 end

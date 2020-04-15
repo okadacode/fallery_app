@@ -366,6 +366,22 @@ width: 100%;
   animation: fadeOut 3s ease 2s 1 normal;
 }
 
+.flash-notice {
+  z-index: 10000;
+  position: fixed;
+  width: 400px;
+  padding: 10px;
+  border: 2px solid #763626;
+  border-radius: 10px;
+  margin: 10px 0 0 390px;
+  background: #89DA59;
+  color: #763626;
+  font-size: 2rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeOut 3s ease 2s 1 normal;
+}
+
 .flash-danger {
   padding: 10px;
   text-align: center;
