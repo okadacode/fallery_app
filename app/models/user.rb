@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :description, length: { maximum: 255 }
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
+  validate :images_size
 
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)
@@ -45,4 +46,16 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  private
+
+    # アップロードされた画像のサイズをバリデーションする
+    def images_size
+      if icon.size > 1.megabytes
+        errors.add(:icon, "の画像のサイズが大きすぎます(最大1MB)")
+      end
+      if header.size > 1.megabytes
+        errors.add(:header, "の画像のファイルのサイズが大きすぎます(最大1MB)")
+      end
+    end
 end
