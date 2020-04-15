@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+
   def show
     @user = User.find_by(name: params[:name])
   end
@@ -38,5 +41,18 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :nickname,
                                    :password, :password_confirmation,
                                    :icon, :header)
+    end
+
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:notice] = "ログインが必要なページです"
+        redirect_to login_url
+      end
+    end
+
+    def correct_user
+      @user = User.find_by(name: params[:name])
+      redirect_to(root_url) unless @user == current_user
     end
 end
