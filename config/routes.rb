@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/:name', to: 'users#show'
-  resources :users
+  get '/:name/setting', to: 'users#edit'
+  patch '/:name/setting', to: 'users#update'
 end

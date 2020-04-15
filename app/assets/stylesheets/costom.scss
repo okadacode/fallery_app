@@ -102,11 +102,24 @@ header {
 }
 .container {
   max-width: 1200px;
+  min-height: 100vh;
   margin: 0 auto;
-  padding-top: 80px;
 }
-.toppage-wrapper {
+
+.content {
+  width: 60%;
+  min-height: 100vh;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.blank {
   width: 100%;
+  height: 80px;
+}
+
+.toppage-wrapper {
+width: 100%;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -196,38 +209,12 @@ header {
 }
 
 .mypage {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-}
-.mypage-left {
-  width: 60%;
-  height: 100vh;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
+  width: 100%;
 }
 .profile {
   position: relative;
   width: 100%;
   border-bottom: 1px solid #ddd;
-  .profile-header {
-    img {
-      width: 100%;
-      height: 300px;
-    }
-  }
-  .profile-icon {
-    position: absolute;
-    top: 240px;
-    left: 50%;
-    transform: translateX(-50%);
-    img {
-      width: 120px;
-      border: 5px solid #fff;
-      border-radius: 50%;
-      box-sizing: content-box;
-    }
-  }
   h2 {
     text-align: center;
     margin-top: 80px;
@@ -252,15 +239,43 @@ header {
   }
 }
 
+.profile-header {
+  img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.profile-icon {
+  position: absolute;
+  top: 240px;
+  left: 50%;
+  transform: translateX(-50%);
+  img {
+    width: 120px;
+    height: 120px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    box-sizing: content-box;
+    object-fit: cover;
+  }
+}
+
 .posting-list {
   position: fixed;
+  top: 0;
   left: 60%;
   width: 360px;
-  height: 75vh;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  height: 90vh;
   margin: 20px;
+  .inner {
+    height: 85%;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 30%;
+  }
 }
 
 .form-wrapper {
@@ -355,4 +370,62 @@ header {
   padding: 10px;
   text-align: center;
   color: red;
+}
+
+.profile-setting {
+  position: relative;
+  h2 {
+    padding: 30px;
+    border-bottom: 1px solid #ddd;
+    font-size: 2rem;
+    a {
+      margin-right: 100px;
+    }
+  }
+  .profile-header {
+    margin-bottom: 100px;
+    text-align: center;
+    label {
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      width: 120px;
+      padding: 5px;
+      border: 1px solid #000;
+      border-radius: 10px;
+      background: #fff;
+      cursor: pointer;
+    }
+    input {
+      display: none;
+    }
+
+  }
+  .profile-icon {
+    top: 320px;
+    text-align: center;
+    label {
+      position: absolute;
+      bottom: -30px;
+      right: 0;
+      width: 120px;
+      padding: 5px;
+      border: 1px solid #000;
+      border-radius: 10px;
+      background: #fff;
+      cursor: pointer;
+    }
+    input {
+      display: none;
+    }
+  }
+  .form-box {
+    width: 80%;
+    textarea {
+      height: 100px;
+    }
+  }
+}
+.hidden {
+  display: none;
 }
