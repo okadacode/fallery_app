@@ -9,6 +9,8 @@ ja:
         email: メールアドレス
         nickname: 名前
         password: パスワード
+        icon: アイコン
+        header: ヘッダー
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
