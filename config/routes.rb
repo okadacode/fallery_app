@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/:name', to: 'users#show'
   get '/:name/setting', to: 'users#edit'
-  resources :users
+  patch '/:name/setting', to: 'users#update'
 end

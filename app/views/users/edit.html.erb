@@ -1,7 +1,7 @@
 <div class="profile-setting">
-
   <h2><%= link_to "←", "/#{params[:name]}" %>プロフィールを編集</h2>
-  <%= form_for(@user) do |f| %>
+  <%= form_for(@user, :url => { :controller => :users,
+                                :action => :update }) do |f| %>
 
     <div id="header-upload">
       <div class="profile-header">
@@ -43,11 +43,6 @@
     <div class="form-box">
       <%= f.label :description, "自己紹介" %>
       <%= f.text_area :description %>
-    </div>
-
-    <div class="form-box">
-      <%= f.label :name, "ユーザー名" %>
-      <%= f.text_field :name %>
     </div>
 
     <div class="form-box">

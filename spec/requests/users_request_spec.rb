@@ -41,6 +41,37 @@ RSpec.describe "Users", type: :request do
       follow_redirect!
       expect(response).to render_template "users/show"
     end
+  end
 
+  describe "ユーザーの編集の失敗に対するテスト" do
+    it "無効なデータが入力されたとき、editテンプレートが表示される" do
+      get "/#{@user.name}/setting"
+      expect(response).to render_template "users/edit"
+      patch "/#{@user.name}/setting", params: {
+                          user: { email: "foo@invalid",
+                                  nickname: "",
+                                  password: "foo",
+                                  password_confirmation: "bar"} }
+      expect(response).to render_template "users/edit"
+    end
+  end
+
+  describe "ユーザーの編集が成功したときのテスト" do
+    it "有効なデータが入力されたとき、データベースが更新される" do
+      get "/#{@user.name}/setting"
+      expect(response).to render_template "users/edit"
+      email = "foo@bar.com"
+      nickname = "テスト"
+      patch "/#{@user.name}/setting", params: {
+                          user: { email: email,
+                                  nickname: nickname,
+                                  password: "",
+                                  password_confirmation: ""} }
+      expect(flash[:danger]).to be_falsey
+      expect(response).to redirect_to "/#{@user.name}"
+      @user.reload
+      expect(@user.email).to eq(email)
+      expect(@user.nickname).to eq(nickname)
+    end
   end
 end

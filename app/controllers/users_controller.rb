@@ -22,6 +22,16 @@ class UsersController < ApplicationController
     @user = User.find_by(name: params[:name])
   end
 
+  def update
+    @user = User.find_by(name: params[:name])
+    if @user.update_attributes(user_params)
+      flash[:success] = "保存に成功しました"
+      redirect_to "/#{@user.name}"
+    else
+      render "edit"
+    end
+  end
+
   private
 
     def user_params
