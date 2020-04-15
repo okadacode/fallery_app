@@ -15,7 +15,16 @@
       <% flash.each do |message_type, message| %>
         <div class="flash-<%= message_type %>"><%= message %></div>
       <% end %>
-      <%= yield %>
+      <% if controller_name == "top_pages" && action_name == "home" %>
+        <div class="blank"></div>
+        <%= yield %>
+      <% else %>
+        <div class="content">
+          <div class="blank"></div>
+          <%= yield %>
+        </div>
+      <% end %>
     </div>
+    <%= render "layouts/sidebar" %>
   </body>
 </html>

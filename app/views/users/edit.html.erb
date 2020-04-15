@@ -1,0 +1,77 @@
+<div class="profile-setting">
+
+  <h2><%= link_to "←", "/#{params[:name]}" %>プロフィールを編集</h2>
+  <%= form_for(@user) do |f| %>
+
+    <div id="header-upload">
+      <div class="profile-header">
+        <div v-if="dataHeader">
+          <img :src="dataHeader">
+        </div>
+        <div v-else>
+          <%= image_tag @user.header.to_s %>
+        </div>
+        <label>
+          ヘッダー変更
+          <%= f.file_field :header, "v-on:change" => "setHeader($event)" %>
+        </label>
+      </div>
+    </div>
+
+    <div id="icon-upload">
+      <div class="profile-icon">
+        <div v-if="dataIcon">
+          <img :src="dataIcon">
+        </div>
+        <div v-else>
+          <%= image_tag @user.icon.to_s %>
+        </div>
+        <label>
+          アイコン変更
+          <%= f.file_field :icon, "v-on:change" => "setIcon($event)" %>
+        </label>
+      </div>
+    </div>
+
+    <%= render 'shared/error_messages' %>
+
+    <div class="form-box">
+      <%= f.label :nickname, "名前" %>
+      <%= f.text_field :nickname %>
+    </div>
+
+    <div class="form-box">
+      <%= f.label :description, "自己紹介" %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="form-box">
+      <%= f.label :name, "ユーザー名" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="form-box">
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="form-box">
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="form-box">
+      <%= f.label :password_confirmation, "確認" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+    <div class="btn">
+      <%= f.submit "保存" %>
+    </div>
+
+  <% end %>
+
+</div>
+
+<%= javascript_pack_tag 'header' %>
+<%= javascript_pack_tag 'icon' %>

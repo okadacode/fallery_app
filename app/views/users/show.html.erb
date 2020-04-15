@@ -1,22 +1,17 @@
 <div class="mypage">
-  <div class="mypage-left">
-    <div class="profile">
-      <div class="profile-header">
-        <%= image_tag("#{@user.header}") %>
-      </div>
-      <div class="profile-icon">
-        <%= image_tag("#{@user.icon}") %>
-      </div>
-      <h2><%= @user.nickname %></h2>
-      <h3><%= @user.name %></h3>
-      <p><%= @user.description %></p>
-      <div class="follow">
-        <%= link_to "100 フォロー中" %>
-        <%= link_to "100 フォロワー" %>
-      </div>
+  <div class="profile">
+    <div class="profile-header">
+      <%= image_tag @user.header.to_s %>
+    </div>
+    <div class="profile-icon">
+      <%= image_tag @user.icon.to_s %>
+    </div>
+    <h2><%= @user.nickname %></h2>
+    <h3><%= @user.name %></h3>
+    <p><%= @user.description %></p>
+    <div class="follow">
+      <%= link_to "100 フォロー中" %>
+      <%= link_to "100 フォロワー" %>
     </div>
   </div>
-  <aside class="posting-list">
-    aaaa
-  </aside>
 </div>
