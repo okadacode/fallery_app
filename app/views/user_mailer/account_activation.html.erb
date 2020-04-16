@@ -1,0 +1,7 @@
+<h1>Fallery</h1>
+
+<p>こんにちは、<%= @user.name %>さん。</p>
+
+<p>Falleryへようこそ！<br>
+アカウントを有効にするために下のリンクをクリックしてください。</p>
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>
