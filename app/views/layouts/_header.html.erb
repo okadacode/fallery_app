@@ -1,7 +1,9 @@
 <% unless controller_name == "users" && action_name == "new" || \
           controller_name == "users" && action_name == "create" || \
           controller_name == "sessions" && action_name == "new" || \
-          controller_name == "sessions" && action_name == "create"%>
+          controller_name == "sessions" && action_name == "create" || \
+          controller_name == "password_resets" && action_name == "new" || \
+          controller_name == "password_resets" && action_name == "create" %>
   <header>
     <div class="header-left">
       <h1>Fallery</h1>

@@ -15,11 +15,13 @@
       <% flash.each do |message_type, message| %>
         <div class="flash-<%= message_type %>"><%= message %></div>
       <% end %>
-      <% if controller_name == "top_pages" && action_name == "home" \
-         || controller_name == "users" &&  action_name == "new" \
-         || controller_name == "users" &&  action_name == "create" \
-         || controller_name == "sessions" &&  action_name == "new" \
-         || controller_name == "sessions" &&  action_name == "create" %>
+      <% if controller_name == "top_pages" && action_name == "home" || \
+            controller_name == "users" &&  action_name == "new" || \
+            controller_name == "users" &&  action_name == "create" || \
+            controller_name == "sessions" &&  action_name == "new" || \
+            controller_name == "sessions" &&  action_name == "create" || \
+            controller_name == "password_resets" && action_name == "new" || \
+            controller_name == "password_resets" && action_name == "create" %>
         <div class="blank"></div>
         <%= yield %>
       <% else %>
