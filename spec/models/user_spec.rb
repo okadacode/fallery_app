@@ -101,7 +101,7 @@ RSpec.describe User, type: :model do
 
   describe "メソッド" do
     it "authenticated?でダイジェストが存在しなければfalse" do
-      expect(@user.authenticated?("")).to eq(false)
+      expect(@user.authenticated?(:remember, "")).to eq(false)
     end
   end
 end

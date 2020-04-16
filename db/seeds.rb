@@ -6,5 +6,7 @@ User.create!(
   password_confirmation: "password",
   icon: File.open("./public/images/icon.png"),
   header: File.open("./public/images/header.jpeg"),
-  description: "こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは"
+  description: "こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは",
+  activated: true,
+  activated_at: Time.zone.now
 )

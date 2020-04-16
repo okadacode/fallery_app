@@ -8,6 +8,8 @@ FactoryBot.define do
     icon { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/icon.png')) }
     header { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/header.jpeg')) }
     description { "こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは" }
+    activated { true }
+    activated_at { Time.zone.now }
   end
 
   factory :another, class: User do
@@ -19,5 +21,7 @@ FactoryBot.define do
     icon { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/icon.png')) }
     header { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/header.jpeg')) }
     description { "こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは" }
+    activated { true }
+    activated_at { Time.zone.now }
   end
 end

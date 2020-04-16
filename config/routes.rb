@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/:name', to: 'users#show'
   get '/:name/setting', to: 'users#edit'
   patch '/:name/setting', to: 'users#update'
+  resources :account_activations, only: [:edit]
 end
